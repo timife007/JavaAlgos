@@ -5,10 +5,11 @@ import java.util.Arrays;
 import static sorting.BubbleSort.swap;
 
 
+
 //time complexity = O(N2)
 public class SelectionSort {
 
-    static int[] input = {7,6,5,4,3,2,1};
+    public static int[] input = {7,6,5,4,3,2,1};
 
     public static void selectionSort(){
         if(input.length == 0) System.out.println(Arrays.toString(input));
