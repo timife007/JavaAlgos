@@ -49,13 +49,22 @@ class StackApp {
         }
         System.out.println(" ");
 
-
+        //Error Handling if stack is full
         StackArray newStack = new StackArray(3);
         for(int i = 0; i <= 3; i++) {
             if (!newStack.isFull()) {
                 newStack.push(20 + i);
             } else {
                 System.out.println("Can't insert, stack is full");
+            }
+        }
+        //Error Handling if stack is empty
+        for(int i = 0; i <= 4; i++) {
+            if (!newStack.isEmpty()) {
+                int popValue = newStack.pop();
+                System.out.println(popValue);
+            } else {
+                System.out.println("Can't pop stack anymore, stack already empty");
             }
         }
     }
