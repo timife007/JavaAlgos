@@ -5,7 +5,13 @@ import java.util.Arrays;
 import static sorting.BubbleSort.swap;
 
 
-
+/**
+ * Picks the first item as the smallest, and compares with
+ * the rest in the array, if a smaller one is found, replace
+ * it the new smallest till the end of the array, and swap
+ * with the next current position.
+ *
+ */
 //time complexity = O(N2)
 public class SelectionSort {
 
