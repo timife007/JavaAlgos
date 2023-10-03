@@ -1,9 +1,9 @@
 package stack;
 
 public class StackArray {
-    private int maxSize;
+    private final int maxSize;
     private int top;
-    private int[] stack;
+    private final int[] stack;
 
     public StackArray(int size){
         this.maxSize = size;
@@ -13,11 +13,11 @@ public class StackArray {
     }
 
     public void push(int item){
-        stack[++top] = item;
+        stack[++top] = item; //increment top then add the item at the new position
     }
 
     public int pop(){
-        return stack[top--];
+        return stack[top--]; //return the top item, then reduce the top index.
     }
 
     public int peek(){
@@ -31,4 +31,23 @@ public class StackArray {
     public boolean isFull(){
         return top == maxSize - 1;
     }
+}
+
+class StackApp{
+
+    public static void main(String[] args){
+        StackArray theStack = new StackArray(10);
+        theStack.push(20);
+        theStack.push(40);
+        theStack.push(60);
+        theStack.push(80);
+
+        while(!theStack.isEmpty()){
+            long value = theStack.pop();
+            System.out.println(value);
+            System.out.println("  ");
+        }
+        System.out.println(" ");
+    }
+
 }
