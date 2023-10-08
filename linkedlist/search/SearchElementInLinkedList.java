@@ -1,7 +1,8 @@
-package linkedlist;
+package linkedlist.search;
 
-import java.util.Arrays;
-import java.util.Iterator;
+
+import linkedlist.Node;
+
 import java.util.Vector;
 
 public class SearchElementInLinkedList {
@@ -40,15 +41,5 @@ public class SearchElementInLinkedList {
             System.out.println("YES");
         }
     }
-}
+} /// Time Complexity of O(N), space of O(N)
 
-class Check {
-    public static void main(String[] args){
-        int[] intList = new int[3];
-        intList[0] = 1;
-        intList[1] = 2;
-        intList[2] = 3;
-        intList[0] = 7;
-        System.out.println(Arrays.toString(intList));
-    }
-}
