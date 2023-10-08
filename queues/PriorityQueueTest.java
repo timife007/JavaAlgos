@@ -17,8 +17,9 @@ public class PriorityQueueTest {
      * maintain the priority order of elements.
      * This doesn't mean they're not in the order which the comparator states.
      */
-    public static void main(String[] args) {
-        PriorityQueue<String> pq = new PriorityQueue<>();
+
+    public static void getPriorityItems(){
+        PriorityQueue<String> pq = new PriorityQueue<>(Comparator.naturalOrder());
         pq.add("Zealot");
         pq.add("Zealot");
         pq.add("Geek");
@@ -30,6 +31,11 @@ public class PriorityQueueTest {
         while(!pq.isEmpty()){
             System.out.println(pq.poll());
         }
+    }
+
+
+    public static void main(String[] args) {
+        getPriorityItems();
     }
 
 }
