@@ -38,7 +38,7 @@ class LinkedList {
         head = new Node(85);
         head.next = new Node(15);
         head.next.next = new Node(4);
-        head.next.next.next = new Node(20);
+        head.next.next.next = new Node(20);  
 
         System.out.println("Given linked list");
         list.linkedListValues(head);
