@@ -28,6 +28,17 @@ class LinkedList {
         }
         return sum;
     }
+
+    //Recursive approach, Time O(N), Space O(N)
+    int sumLinkedListRecursive(Node node){
+        int sum = 0;
+        if(node == null) return sum;
+
+        sum =  node.data + sumLinkedListRecursive(node.next);
+        return sum;
+    }
+
+
     public static void main(String[] args)
     {
         LinkedList list = new LinkedList();
@@ -37,6 +48,7 @@ class LinkedList {
         head.next.next.next = new Node(7);
 
         System.out.println(list.sumLinkedList(head));
+        System.out.println(list.sumLinkedListRecursive(head));
 
     }
 }
