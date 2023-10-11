@@ -15,7 +15,7 @@ class LinkedList {
         }
     }
 
-    //Iterative approach to find item in linked-list
+    //Iterative approach to find item in linked-list Time O(N), Space O(1)
     boolean isItemPresent(int item, Node node){
         Node current = node;
 
@@ -25,6 +25,16 @@ class LinkedList {
         }
 
         return false;
+    }
+
+    //Recursive solution to find an item in a linked list Time O(N), Space O(N) because
+    //of the call stack.
+    boolean isItemPresentRecursive(int item, Node node){
+
+        if(node == null ) return false;
+        if(node.data == item) return true;
+
+        return isItemPresentRecursive(item,node.next);
     }
 
 
@@ -42,6 +52,8 @@ class LinkedList {
         System.out.println(list.isItemPresent(0,null));
         System.out.println(list.isItemPresent(8,head));
 
+        System.out.println(list.isItemPresentRecursive(0,null));
+        System.out.println(list.isItemPresentRecursive(7,head));
 
     }
 
