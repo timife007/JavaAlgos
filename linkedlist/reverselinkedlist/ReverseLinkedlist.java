@@ -18,7 +18,7 @@ class LinkedList {
         }
     }
 
-    /* Function to reverse the linked list */
+    /* Iterative approach to reverse the linked list */
     Node reverse(Node node)
     {
         Node prev = null;
@@ -33,6 +33,17 @@ class LinkedList {
 
         node = prev;
         return node;
+    }
+
+    Node reverseRecursive(Node head){
+        return recursion(head, null);
+    }
+    Node recursion(Node head, Node prev){
+        if(head == null) return prev;
+
+        Node next = head.next;
+        head.next = prev;
+        return recursion(next, head);
     }
 
     // prints content of double linked list
@@ -56,6 +67,7 @@ class LinkedList {
         System.out.println("Given linked list");
         list.printList(head);
         head = list.reverse(head);
+//        head = list.reverseRecursive(head);
         System.out.println();
         System.out.println("Reversed linked list ");
         list.printList(head);
