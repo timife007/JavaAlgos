@@ -16,18 +16,28 @@ class LinkedList {
         }
     }
 
-    Node findNodeAtIndex(Node head, int index){
+    //Iterative approach time O(N) and space O(1)
+    Integer findNodeAtIndex(Node head, int index){
         if(head == null) return null;
         Node current = head;
-        int tracker = -1;
+        int tracker = 0;
         while(current != null){
-            tracker++;
             if(tracker == index){
-                return current;
+                return current.data;
             }
+            tracker++;
             current = current.next;
         }
         return null;
+    }
+
+    //Recursive approach time O(N) and space O(N)
+    Integer findNodeRecursive(Node head, int index){
+        if(head == null) return null;
+        if(index == 0){
+            return head.data;
+        }
+        return findNodeRecursive(head.next, index - 1);
     }
 
 
@@ -39,7 +49,7 @@ class LinkedList {
         head.next.next = new Node(3);
         head.next.next.next = new Node(7);
 
-        System.out.println(list.findNodeAtIndex(head, 0).data);
+        System.out.println(list.findNodeRecursive(head, 2));
 
 
     }
