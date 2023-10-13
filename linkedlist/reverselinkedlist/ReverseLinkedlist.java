@@ -18,7 +18,7 @@ class LinkedList {
         }
     }
 
-    /* Iterative approach to reverse the linked list */
+    // Iterative approach to reverse the linked list time O(N), space O(1)
     Node reverse(Node node)
     {
         Node prev = null;
@@ -35,6 +35,7 @@ class LinkedList {
         return node;
     }
 
+    //recursive approach time O(N), space O(N)
     Node reverseRecursive(Node head){
         return recursion(head, null);
     }
