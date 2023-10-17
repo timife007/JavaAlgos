@@ -18,9 +18,18 @@ public class Palindrome {
         return false;
     }
 
+    static String decimalToBinary(int num, String res){
+        if(num == 0) return res;
+        int rem = num % 2;
+        res = res + rem;
+        return decimalToBinary(num/2, res);
+    }
+
+
 
     public static void main(String[] args){
         System.out.println(isPalindrome("kayak"));
         System.out.println(isPalindrome2("kayak"));
+        System.out.println(decimalToBinary(32,""));
     }
 }
