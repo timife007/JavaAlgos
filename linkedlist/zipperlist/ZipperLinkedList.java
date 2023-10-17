@@ -17,6 +17,7 @@ class LinkedList {
         }
     }
 
+    //Iterative approach time O(N), space O(1)
     Node zipperList(Node head1, Node head2){
         if(head1 == null) return head2;
         if(head2 == null) return head1;
@@ -46,6 +47,20 @@ class LinkedList {
         return head1;
     }
 
+    //Recursive approach time O(N), space O(N)
+    Node zipperRecursive(Node head1, Node head2){
+        if(head1 == null && head2 == null) return null;
+        if(head1 ==  null) return head2;
+        if(head2 == null) return head1;
+        Node next1 = head1.next;
+        Node next2 = head2.next;
+
+        head1.next = head2;
+        head2.next = zipperRecursive(next1,next2);
+        return head1;
+
+    }
+
     void printList(Node node)
     {
         while (node != null) {
@@ -67,7 +82,7 @@ class LinkedList {
         head2.next.next = new Node(12);
         head2.next.next.next = new Node(11);
 
-        list.printList(list.zipperList(head1,head2));
+        list.printList(list.zipperRecursive(head1,head2));
 
     }
 }
