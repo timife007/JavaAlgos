@@ -58,5 +58,6 @@ public class SweetAndSavory {
     public static void main(String[] args){
         int[] input = new int[]{2, 4, -4, -7, 12, 100, -25};
         System.out.println(Arrays.toString(findProfile(input, -1)));
+
     }
 }
