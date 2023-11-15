@@ -35,9 +35,42 @@ public class LargestRange {
         return map.get(max);
     }
 
+    public static int[] largeRangeOptimized(int[] array){
+        Map<Integer, Boolean> map = new HashMap<>();
+        Map<Integer, int[]> result = new HashMap<>();
+
+        for(int item: array){
+            map.put(item, true);
+        }
+
+        for(int item: array){
+            int pointer = item;
+            if(map.get(pointer)){
+                while(map.containsKey(pointer)){
+                    map.put(pointer, false);
+                    pointer--;
+                }
+                int start = pointer + 1;
+                pointer = item + 1;
+                while(map.containsKey(pointer)){
+                    map.put(pointer, false);
+                    pointer++;
+                }
+                int end = pointer - 1;
+                result.put(end - start, new int[]{start, end});
+            }
+        }
+        int max = Integer.MIN_VALUE;
+        for(int item: result.keySet()){
+            max = Math.max(max, item);
+        }
+
+        return result.get(max);
+    }
+
     public static void main(String[] args){
         int[] input = new int[]{0,2,3,4,8,9,10,11,12};
         int[] input2 = new int[]{1};
-        System.out.println(Arrays.toString(largestRange(input)));
+        System.out.println(Arrays.toString(largeRangeOptimized(input2)));
     }
 }
