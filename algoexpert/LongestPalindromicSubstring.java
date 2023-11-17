@@ -42,24 +42,16 @@ public class LongestPalindromicSubstring {
         int max = Integer.MIN_VALUE;
         String result = "";
         for(int i = 0; i < str.length(); i++){
-            int front = i;
             int back = i;
-            while((front < str.length() && back >= 0) && str.charAt(front) == str.charAt(back)){
-                front++;
-                back--;
-            }
-            String current = str.substring(back + 1, front);
+
+            String current = palindrome(str, i, back);
             if(current.length() > max){
                 result = current;
                 max = current.length();
             }
-            front = i;
             back  = i - 1;
-            while((front < str.length() && back >= 0) && str.charAt(front) == str.charAt(back)){
-                front++;
-                back--;
-            }
-            String current2 = str.substring(back + 1, front);
+
+            String current2 = palindrome(str, i, back);
             if(current2.length() > max){
                 result = current2;
                 max = current2.length();
@@ -67,6 +59,16 @@ public class LongestPalindromicSubstring {
         }
 
         return result;
+    }
+
+    public static String palindrome(String word, int front, int back){
+        int x = front;
+        int y = back;
+        while((x < word.length() && y >= 0) && word.charAt(x) == word.charAt(y)){
+            x++;
+            y--;
+        }
+        return word.substring(y + 1, x);
     }
 
     public static void main(String[] args){
