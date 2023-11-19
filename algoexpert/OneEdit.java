@@ -32,7 +32,6 @@ public class OneEdit {
                 return false;
             }
         }
-
         return true;
     }
 
